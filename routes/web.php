@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ComicsController;
+use App\Http\Controllers\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home-page');
-
-Route::get('/test', function () {
-    return view('welcome');
-});
+Route::get('/comics', [ComicsController::class, 'index'])->name('comics-page');
+Route::get('/about', [PagesController::class, 'about'])->name('about-page');
+Route::get('/contact', [PagesController::class, 'contact'])->name('contact-page');
+Route::get('/artists', [PagesController::class, 'artists'])->name('artists-page');
+Route::get('/parody', [PagesController::class, 'parody'])->name('parody-page');

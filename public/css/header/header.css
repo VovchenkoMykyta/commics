@@ -1,0 +1,30 @@
+header .container .first-wraper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header a{
+    color: #fff;
+    text-decoration: none;
+}
+header a:hover{
+    color: #e8e8e8;
+}
+header #search-icon-container:hover + svg path{
+    fill: #e8e8e8
+}
+header #search-icon-container{
+    margin-right: -90px;
+}
+header .logo{
+    max-height: 70px;
+}
+
+header .logo img{
+    height: 60px;
+}
+
+header .container .account-wraper{
+    display: flex;
+    gap: 40px;
+}
