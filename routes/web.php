@@ -1,9 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ComicsController;
+use App\Http\Controllers\Admin\AdminComicsController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +24,17 @@ Route::get('/about', [PagesController::class, 'about'])->name('about-page');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact-page');
 Route::get('/artists', [PagesController::class, 'artists'])->name('artists-page');
 Route::get('/parody', [PagesController::class, 'parody'])->name('parody-page');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/admin/comics', [AdminComicsController::class, 'index'])->name('comics');
+});
+
+require __DIR__.'/auth.php';
