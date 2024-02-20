@@ -1,7 +1,7 @@
 <div class="container">
     <div class="first-wraper">
         <div class="logo">
-            <img src="{{ asset('storage/logo/logo3.jpg')}}" alt="logo">
+            <img src="{{ asset('storage/logo/logo2.png')}}" alt="logo">
         </div>
         <div class="nav-container">
             @include('components.nav')

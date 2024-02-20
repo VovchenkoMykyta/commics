@@ -6,7 +6,7 @@
         <a href="{{ route('artists-page') }}">Artists</a>  
     </div>
     <div>
-        <a href="{{ route('comics-page') }}">Comics</a> 
+        <a href="{{ route('comics-page') }}">Comics</a>
     </div>
     <div>
         <a href="{{ route('contact-page') }}">Parody</a>
