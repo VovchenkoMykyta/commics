@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminArtistsController;
 use App\Http\Controllers\ComicsController;
 use App\Http\Controllers\Admin\AdminComicsController;
 use App\Http\Controllers\HomeController;
@@ -35,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/admin/comics', [AdminComicsController::class, 'index'])->name('comics');
+    Route::get('/admin/artists', [AdminArtistsController::class, 'index'])->name('artists');
+    Route::get('/admin/artists/create', [AdminArtistsController::class, 'create'])->name('create-artist');
+    Route::post('/admin/artists/save', [AdminArtistsController::class, 'save'])->name('save-artist');
 });
 
 require __DIR__.'/auth.php';

@@ -9,6 +9,6 @@ class AdminComicsController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.comics');
+        return view('admin.pages.comics.comics');
     }
 }
