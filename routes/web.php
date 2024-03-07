@@ -38,7 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/comics', [AdminComicsController::class, 'index'])->name('comics');
     Route::get('/admin/artists', [AdminArtistsController::class, 'index'])->name('artists');
     Route::get('/admin/artists/create', [AdminArtistsController::class, 'create'])->name('create-artist');
+    Route::get('/admin/artists/edit/{artist}', [AdminArtistsController::class, 'edit'])->name('edit-artist');
     Route::post('/admin/artists/save', [AdminArtistsController::class, 'save'])->name('save-artist');
+    Route::post('/admin/artists/update', [AdminArtistsController::class, 'update'])->name('update-artist');
+    Route::post('/admin/artists/delete/{artist}', [AdminArtistsController::class, 'delete'])->name('delete-artist');
 });
 
 require __DIR__.'/auth.php';

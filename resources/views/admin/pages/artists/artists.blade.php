@@ -13,15 +13,24 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     @if(count($page['artists']))
-                        <div>
+                        <div class="mb-4">
                             <div>
                                 Name of artist
                             </div>
                         </div>
                         @foreach($page['artists'] as $key => $artist)
-                            <div>
-                                <span>{{ $key + 1 }}</span>.
-                                <span>{{ $artist->name }}</span>
+                            <div class="flex justify-between items-center pb-3 pt-4 border-b border-gray-200">
+                                <div><a href="{{route('edit-artist', ['artist' => $artist->id])}}">{{ $artist->name }}</a></div>
+                                <div>
+                                    <form action="{{ route("delete-artist", ['artist' => $artist->id]) }}" method="POST">
+                                        @csrf
+                                        @method("POST")
+                                        <x-danger-button>
+                                            Delete
+                                        </x-danger-button>
+                                    </form>
+
+                                </div>
                             </div>
                         @endforeach
                     @else
