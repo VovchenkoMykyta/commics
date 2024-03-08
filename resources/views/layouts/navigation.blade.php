@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('artists')" :active="request()->routeIs('artists')">
                         {{ __('Artists') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('tags')" :active="request()->routeIs('tags')">
+                        {{ __('Tags') }}
+                    </x-nav-link>
                 </div>
             </div>
 

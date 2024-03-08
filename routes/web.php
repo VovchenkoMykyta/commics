@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminArtistsController;
+use App\Http\Controllers\Admin\AdminTagsController;
 use App\Http\Controllers\ComicsController;
 use App\Http\Controllers\Admin\AdminComicsController;
 use App\Http\Controllers\HomeController;
@@ -35,7 +36,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/admin/tags', [AdminTagsController::class, 'index'])->name('tags');
+    Route::get('/admin/tags/create', [AdminTagsController::class, 'create'])->name('create-tags');
+    Route::post('/admin/tags/save', [AdminTagsController::class, 'save'])->name('save-tags');
+    Route::post('/admin/tags/update', [AdminTagsController::class, 'update'])->name('update-tags');
+    Route::get('/admin/tags/edit/{tag}', [AdminTagsController::class, 'edit'])->name('edit-tags');
+    Route::post('/admin/tag/delete/{tag}', [AdminTagsController::class, 'delete'])->name('delete-tags');
+
     Route::get('/admin/comics', [AdminComicsController::class, 'index'])->name('comics');
+    Route::get('/admin/comics/create', [AdminComicsController::class, 'create'])->name('create-comics');
+    Route::post('/admin/comics/save', [AdminComicsController::class, 'save'])->name('save-comics');
+    Route::post('/admin/comics/update', [AdminComicsController::class, 'update'])->name('update-comics');
+    Route::get('/admin/comics/edit/{comics}', [AdminComicsController::class, 'edit'])->name('edit-comics');
+    Route::post('/admin/comics/delete/{comics}', [AdminComicsController::class, 'delete'])->name('delete-comics');
+
+
     Route::get('/admin/artists', [AdminArtistsController::class, 'index'])->name('artists');
     Route::get('/admin/artists/create', [AdminArtistsController::class, 'create'])->name('create-artist');
     Route::get('/admin/artists/edit/{artist}', [AdminArtistsController::class, 'edit'])->name('edit-artist');
