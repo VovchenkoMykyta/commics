@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Comics extends Model
 {
     use HasFactory;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'media',
+        'artist_id',
+        'tags'
+    ];
 }

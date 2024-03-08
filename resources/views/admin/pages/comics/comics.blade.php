@@ -15,9 +15,9 @@
                     @if(count($page['comics']))
                         @foreach($page['comics'] as $key => $comics)
                             <div class="flex justify-between items-center pb-3 pt-4 border-b border-gray-200">
-                                <div><a href="{{route('edit-artist', ['artist' => $comics->id])}}">{{ $comics->name }}</a></div>
+                                <div><a href="{{route('edit-comics', ['comics' => $comics->id])}}">{{ $comics->name }}</a></div>
                                 <div>
-                                    <form action="{{ route("delete-artist", ['artist' => $comics->id]) }}" method="POST">
+                                    <form action="{{ route("delete-comics", ['comics' => $comics->id]) }}" method="POST">
                                         @csrf
                                         @method("POST")
                                         <x-danger-button>

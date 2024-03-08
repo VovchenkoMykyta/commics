@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name");
             $table->json("tags");
             $table->foreignId("artist_id");
-            $table->json("media");
+            $table->string("media")->nullable();
             $table->timestamps();
         });
     }
