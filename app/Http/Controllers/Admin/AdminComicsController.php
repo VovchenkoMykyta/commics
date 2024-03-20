@@ -7,7 +7,6 @@ use App\Models\Artists;
 use App\Models\Comics;
 use App\Models\ComicsMedia;
 use App\Models\Tags;
-use Faker\Core\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -25,7 +24,6 @@ class AdminComicsController extends Controller
         $page['artists'] = Artists::all();
         $page['tags'] = Tags::all();
         return view("admin.pages.comics.create", compact("page"));
-
     }
 
     public function edit(Request $request, $comics)
